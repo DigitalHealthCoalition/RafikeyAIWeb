@@ -65,7 +65,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
           <p class="text-2xl text-cerise-600 font-bold">Other Services</p>
           <h2 class="text-7xl font-bold text-shark-950">RAFIKey AI ChatBot</h2>
         </div>
-        <div class="flex items-center gap-6 justify-center">
+        <div class="flex gap-6 items-stretch justify-center">
           <div class="bg-white rounded-xl shadow-2xl py-10 space-y-4">
             <div class="flex justify-center">
               <img src="@/assets/images/home-2.png" alt="info-image" />
