@@ -5,7 +5,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
 <template>
   <div class="h-screen w-full snap-y snap-mandatory overflow-y-scroll hide-scrollbar">
     <section class="h-screen snap-start flex items-center justify-center w-11/12 mx-auto">
-      <div class="h-screen w-full space-y-8 flex flex-col justify-center">
+      <div class="h-screen w-full space-y-8 flex  flex-col justify-center">
         <div class="flex justify-center">
           <h2 class="text-deep-cove-950 font-extrabold !text-6xl">About Rafikey</h2>
         </div>

@@ -28,33 +28,37 @@ import FooterComponent from '@/components/FooterComponent.vue'
     </section>
 
 <!--    second slide-->
-    <section class="h-screen snap-start flex items-center justify-center gap-8 w-11/12 mx-auto">
-      <div class="border-shark-950 border-2 rounded-2xl p-10">
-        <p class="text-shark-950  text-2xl font-bold"> What Can You Talk to Me About</p>
-        <div class="pt-10 text-xl text-shark-950">
-          <p class="">Honestly? Anything</p>
-          <ul class="list-disc ps-8">
-            <li>School or exam stress</li>
-            <li>Feeling down, anxious or just "off</li>
-            <li>friendship drama or family stuff</li>
-            <li>Identity, relationships or even crushes</li>
-            <li>Or just: "I don't know what's wrong." That's totally okay too.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-2 border-shark-950 px-8 py-12 rounded-2xl w-2/6">
-        <p class="text-shark-950 text-2xl font-bold ">How I Work</p>
-        <div class="space-y-5">
+    <section class="h-screen snap-start flex flex-stretch  items-center justify-center gap-8 w-11/12 mx-auto">
+      <div class="flex gap-6 w-8/12  justify-center items-stretch">
+        <div class="flex flex-1  flex-col border-shark-950 border-2 rounded-2xl p-10">
+          <p class="text-shark-950  text-2xl font-bold"> What Can You Talk to Me About</p>
           <div class="pt-10 text-xl text-shark-950">
-            <p>You type what's on your mind</p>
-            <p>I'll listen and respond like a friend</p>
-          </div>
-          <div class="text-xl">
-            <p class="">I can guide you, support you or share helpful tips</p>
-            <p class="">If things feel too heavy, I'll help you figure out what to do next - even connect you to real people if you ask </p>
+            <p class="">Honestly? Anything</p>
+            <ul class="list-disc ps-8">
+              <li>School or exam stress</li>
+              <li>Feeling down, anxious or just "off</li>
+              <li>friendship drama or family stuff</li>
+              <li>Identity, relationships or even crushes</li>
+              <li>Or just: "I don't know what's wrong." That's totally okay too.</li>
+            </ul>
           </div>
         </div>
+        <div class="flex flex-1  flex-col  border-2 border-shark-950 px-8 py-12 rounded-2xl w-2/6">
+          <p class="text-shark-950 text-2xl font-bold ">How I Work</p>
+          <div class="space-y-5">
+            <div class="pt-10 text-xl text-shark-950">
+              <p>You type what's on your mind</p>
+              <p>I'll listen and respond like a friend</p>
+            </div>
+            <div class="text-xl">
+              <p class="">I can guide you, support you or share helpful tips</p>
+              <p class="">If things feel too heavy, I'll help you figure out what to do next - even connect you to real people if you ask </p>
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </section>
     <section class="h-screen snap-start flex space-y-8 flex-col items-center justify-center">
       <div class="flex flex-col space-y-6  items-center justify-center">
