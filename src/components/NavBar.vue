@@ -1,15 +1,24 @@
 <script setup lang="ts">
-import { useTabStore } from '@/stores'
+import { useRafikeyWebstore, useTabStore } from '@/stores'
 import { useRouter } from 'vue-router'
+import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
 const tabStore = useTabStore()
 const router = useRouter()
+const webStore = useRafikeyWebstore()
 
 const handleRouteChange = (tab: string) =>{
   tabStore.setActiveTab(tab)
-  router.push({
-    name: tab
-  })
+  // webStore.setCollapseSidebarSmall(true)
+  setTimeout(()=>{
+    webStore.setCollapseSidebarSmall(true)
+    router.push({
+      name: tab
+    })
+    // webStore.setCollapseSidebarSmall(true)
+  }, 1000)
+
+
 }
 
 const homeHandler = () =>{
@@ -56,6 +65,18 @@ const registerHandler = () => {
       </div>
     </div>
 
+  </div>
+  <div class="flex fixed z-50 top-0 left-0 right-0 bg-white justify-between p-4 lg:hidden">
+    <div  class="cursor-pointer" @click="homeHandler">
+      <img src="@/assets/images/rafikey-word.png" alt="rafikey-word"/>
+    </div>
+    <div class="">
+      <div
+        @click="webStore.setCollapseSidebarSmall(false)"
+        class="btn btn-sm bg-transparent border-none hover:shadow-none">
+        <span class="material-icons-outlined">clear_all</span>
+      </div>
+    </div>
   </div>
   <div class="">
     <TransitionRoot
