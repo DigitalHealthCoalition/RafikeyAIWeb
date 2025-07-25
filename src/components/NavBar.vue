@@ -12,6 +12,12 @@ const handleRouteChange = (tab: string) =>{
   })
 }
 
+const homeHandler = () =>{
+  // webStore.setCollapseSidebarSmall(true)
+  router.push({
+    name: 'home'
+  })
+}
 const loginHandler = () => {
   window.location.href = 'https://rafikeyaichatbot-frontend.onrender.com/auth/login'
 }
@@ -22,10 +28,11 @@ const registerHandler = () => {
 </script>
 
 <template>
-  <div class="fixed left-0 right-0 top-0 bg-white">
-    <div class="flex justify-between py-4 px-8  gap-4 ">
+
+  <div class="fixed hidden lg:block left-0 right-0 top-0 bg-white z-50">
+    <div class="flex bg-white justify-between py-4 px-8  gap-4 ">
 <!--      icon-->
-      <div class="">
+      <div class="cursor-pointer" @click="homeHandler">
         <img src="@/assets/images/RAFIKey.png" alt="rafikey-name-image">
       </div>
 <!--      navs-->
@@ -49,6 +56,90 @@ const registerHandler = () => {
       </div>
     </div>
 
+  </div>
+  <div class="">
+    <TransitionRoot
+      as="template"
+      :show="!webStore.collapseSidebarSmall"
+      class="lg:hidden block"
+    >
+      <Dialog class="relative z-10" @close="webStore.setCollapseSidebarSmall(true)">
+        <div class="fixed inset-0 overflow-hidden">
+          <div class="absolute inset-0 overflow-hidden">
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+              <TransitionChild
+                as="template"
+                enter="transform transition ease-in-out duration-500 sm:duration-700"
+                enter-from="translate-x-full"
+                enter-to="translate-x-0"
+                leave="transform transition ease-in-out duration-500 sm:duration-700"
+                leave-from="translate-x-0"
+                leave-to="translate-x-full"
+              >
+                <DialogPanel class="pointer-events-auto relative w-screen max-w-md">
+                  <TransitionChild
+                    as="template"
+                    enter="ease-in-out duration-500"
+                    enter-from="opacity-0"
+                    enter-to="opacity-100"
+                    leave="ease-in-out duration-500"
+                    leave-from="opacity-100"
+                    leave-to="opacity-0"
+                  >
+                    <div class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 sm:-ml-10 sm:pr-4">
+                    </div>
+                  </TransitionChild>
+                  <div
+                    class="flex h-full flex-col overflow-y-auto bg-white  py-6 shadow-xl"
+                  >
+                    <div class="px-4 sm:px-6">
+                      <DialogTitle class="text-base font-semibold">
+                        <div class="flex justify-end">
+<!--                          <div>-->
+<!--                            <p class="text-xl dark:text-white">RAFIKey</p>-->
+<!--                          </div>-->
+                          <div
+                            @click="webStore.setCollapseSidebarSmall(true)"
+                            class="btn btn-sm btn-circle flex justify-center items-center h-10  w-10 bg-gray-300  hover:bg-transparent shadow-none"
+                          >
+                            <span class="material-icons-outlined rotate-180 "
+                            >arrow_back_ios</span
+                            >
+                          </div>
+                        </div>
+<!--                        <div class="border-b border-darkgray pt-4"></div>-->
+                      </DialogTitle>
+                    </div>
+                    <div class="relative mt-6 ms-6 flex-1">
+                      <!-- Your content -->
+                      <div v-for="tab in tabStore.getTabs" :key="tab.value">
+                        <div @click.stop="handleRouteChange(tab.value)" class="ps-4" :class="[tabStore.activeTab === tab.value? 'bg-shark-950 w-full': '']">
+                          <span class="text-lg " :class="[tabStore.activeTab === tab.value? 'text-white': 'text-stone-400']">{{ tab.name }}</span>
+                        </div>
+                      </div>
+                      <div class="absolute bottom-0 w-full cursor-pointer">
+                        <div
+                          @click="loginHandler"
+                          class="flex gap-4 hover:bg-shark-100 p-2">
+                          <span class="material-icons-outlined">login</span>
+                          <span>Login</span>
+                        </div>
+                        <div
+                          @click="registerHandler"
+                          class="flex gap-4 hover:bg-shark-100 p-2 rounded">
+                          <span class="material-icons-outlined text-shark-950">person_add</span>
+                          <span class="hover:text-shark-950">Register</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </DialogPanel>
+              </TransitionChild>
+            </div>
+          </div>
+        </div>
+      </Dialog>
+    </TransitionRoot>
   </div>
 </template>
 
