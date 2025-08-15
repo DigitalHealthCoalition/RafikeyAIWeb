@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import FooterComponent from '@/components/FooterComponent.vue'
-import { nextTick, onMounted } from 'vue'
+import { nextTick, onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -8,7 +8,7 @@ import { Navigation } from 'swiper/modules'
 import image_1 from '@/assets/images/avator-web.png'
 import image_2 from '@/assets/images/avator-web.png'
 import image_3 from '@/assets/images/avator-web.png'
-import image_4 from'@/assets/images/avator-web.png'
+
 
 // Import Swiper styles
 import 'swiper/css'
@@ -26,32 +26,24 @@ const carouselInfo = [
     name: 'Jaden Kiptoo',
     location: 'Machakos',
     testimonial:
-      'Lorem ipsum doloor sit amet, consecteur adiopiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+      'I didn’t know where to go for help, but Rafikey guided me to a nearby health center in minutes. It felt like talking to a caring friend who knew exactly what I needed.',
   },
   {
     id: 2,
     avatorSrc: image_2,
-    name: 'Jane Doe',
-    location: 'Nairobi',
+    name: 'Halima Wakesho',
+    location: 'Kilifi',
     testimonial:
-      'Lorem ipsum doloor sit amet, consecteur adiopiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+      'Rafikey was so easy to use! I just answered a few questions and instantly got directions to the right service. Rafikey saved me so much time and stress.',
   },
   {
     id: 3,
     avatorSrc: image_3,
-    name: 'John Smith',
-    location: 'Mombasa',
+    name: 'John Odhiambo',
+    location: 'Nanyuki',
     testimonial:
-      'Lorem ipsum doloor sit amet, consecteur adiopiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-  },
-  {
-    id: 4,
-    avatorSrc: image_4,
-    name: 'Alice Johnson',
-    location: 'Kisumu',
-    testimonial:
-      'Lorem ipsum doloor sit amet, consecteur adiopiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-  },
+      'I was unsure about my next step, but rafikey made everything clear. It gave me trusted information and connected me to the right place without any hassle.',
+  }
 ] as {
   id: number
   avatorSrc: string
