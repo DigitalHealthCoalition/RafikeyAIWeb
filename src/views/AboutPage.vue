@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import FooterComponent from '@/components/FooterComponent.vue'
+
+const startChatHandler = () => {
+  window.location.href = 'https://rafikeyaichatbot-frontend.onrender.com/auth'
+}
 </script>
 
 <template>
