@@ -158,7 +158,7 @@ export default {
         'pt-sans-bold-italic': ['PT SANS Bold Italic', 'Ubuntu', 'sans-serif'],
         'pt-sans-caption-bold': ['PT SANS Caption Bold', 'Ubuntu', 'sans-serif'],
         'pt-sans-caption-regular': ['PT SANS Caption Regular', 'Ubuntu', 'sans-serif'],
-        'pt-sana-italic': ['PT SANS Italic', 'Ubuntu', 'sans-serif'],
+        'pt-sans-italic': ['PT SANS Italic', 'Ubuntu', 'sans-serif'],
         'pt-sans-narrow-bold': ['PT SANS Narrow Bold', 'Ubuntu', 'sans-serif'],
         'pt-sans-narrow-regular': ['PT SANS Narrow Regular', 'Ubuntu', 'sans-serif'],
         'pt-sans-regular': ['PT SANS Regular', 'Ubuntu', 'sans-serif'],

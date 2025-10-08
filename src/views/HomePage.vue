@@ -8,8 +8,6 @@ import { Navigation } from 'swiper/modules'
 import image_1 from '@/assets/images/avator-web.png'
 import image_2 from '@/assets/images/avator-web.png'
 import image_3 from '@/assets/images/avator-web.png'
-
-
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
