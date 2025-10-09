@@ -139,7 +139,7 @@ const startChatHandler = () => {
           <p class="font-outfit text-[20px] leading-[32px] opacity-[70%]">Whether you're asking questions, playing to learn, or finding support, we want you to feel confident that your data is handled with care and respect</p>
         </div>
         <div class="xl:w-3/4 lg:w-1/4 w-2/3 flex justify-center">
-          <img src="@/assets/images/about-4.png" alt="rafikey-image"/>
+          <img src="@/assets/images/Rafikey-mascot.png" alt="rafikey-image"/>
         </div>
         <div>
           <h2 class="font-changa-one text-center px-2 text-[20px] lg:text-[72px] leading-[74px] tracking-[-3%]">No labels. No pressure. Just support.</h2>
