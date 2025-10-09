@@ -66,17 +66,16 @@ const registerHandler = () => {
     </div>
 
   </div>
-  <div class="flex fixed z-50 top-0 left-0 right-0 bg-white justify-between p-4 lg:hidden">
-    <div  class="cursor-pointer" @click="homeHandler">
-      <img src="@/assets/images/rafikey-word.png" alt="rafikey-word"/>
+  <div class="flex h-16  fixed z-50 top-0 left-0 right-0 bg-white justify-between p-4 lg:hidden">
+    <div  class="cursor-pointer flex items-center" @click="homeHandler">
+      <img src="@/assets/images/Rafikey-logo.png" class="w-32 h-32" alt="rafikey-word"/>
     </div>
-    <div class="">
       <div
         @click="webStore.setCollapseSidebarSmall(false)"
-        class="btn btn-sm bg-transparent border-none hover:shadow-none">
+        class="btn btn-sm shadow-none bg-transparent border-none hover:shadow-none">
         <span class="material-icons-outlined">clear_all</span>
       </div>
-    </div>
+
   </div>
   <div class="">
     <TransitionRoot
