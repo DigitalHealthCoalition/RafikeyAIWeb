@@ -8,7 +8,6 @@ const collapseSidebarSmall = ref(true);
 
   const setCollapseSidebarSmall = (val: boolean) =>{
     collapseSidebarSmall.value = val
-    console.log("Collapse sidebar small set to:", val)
   }
 
   return {
