@@ -123,7 +123,7 @@ onMounted(async () => {
         </div>
 
         <div class="flex w-full items-center lg:hidden justify-center ">
-          <div class="">
+          <div class="w-1/3 lg:w-full">
             <img src="@/assets/images/Rafikey-mascot.png" alt="rafikey-image" />
           </div>
         </div>
