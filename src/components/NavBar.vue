@@ -127,7 +127,9 @@ const registerHandler = () => {
                             >
                           </div>
                         </div>
-<!--                        <div class="border-b border-darkgray pt-4"></div>-->
+                        <div class="flex justify-center items-center h-12">
+                          <img src="@/assets/images/Rafikey-logo.png" class="w-32 h-32 mx-auto" alt="rafikey-word"/>
+                        </div>
                       </DialogTitle>
                     </div>
                     <div class="relative mt-6 ms-6 flex-1">
