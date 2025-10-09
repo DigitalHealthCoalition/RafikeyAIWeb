@@ -163,7 +163,7 @@ onMounted(async () => {
 
     <!--    second slide-->
     <section
-      class="panel-3 py-16 md:py-20 lg:pb-20 xl:h-screen z-1 bg-white lg:px-[80px]"
+      class="panel-3 py-16 md:py-20 lg:pb-40 xl:h-screen bg-white lg:px-[80px] lg:mb-16"
     >
       <div
         class=" flex flex-col"
@@ -253,8 +253,8 @@ onMounted(async () => {
     </section>
 
     <!--    third slide -->
-    <section class="section xl:h-screen lg:px-[80px] flex bg-darkGrayOne py-16 md:py-20 lg:pb-10">
-      <div class=" flex w-full items-center justify-between lg:pt-[89px] pt-0">
+    <section class="section xl:h-screen lg:px-[80px] flex bg-darkGrayOne py-16 md:py-20 lg:pt-[80px] lg:pb-10">
+      <div class=" flex w-full items-center justify-between pt-0">
         <div class="w-1/2 xl:pt-[48px] lg:flex hidden items-center justify-start">
           <div class="flex items-end justify-center xl:h-[546px] xl:w-[546px] ">
             <img src="@/assets/images/Rafikey-mascot.png" alt="rafikey-image" class="" />
