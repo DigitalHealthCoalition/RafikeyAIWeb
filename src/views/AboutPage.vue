@@ -130,27 +130,24 @@ import FooterComponent from '@/components/FooterComponent.vue'
     </section>
 
 <!--    Fourth slide-->
-    <section class="py-20 lg:py-10 flex items-center justify-center third-slide text-white">
+    <section class="py-10 lg:py-10 flex items-center justify-center third-slide text-white">
       <div class="w-full  flex items-center flex-col ">
-        <div class="">
+        <div class="py-4 ">
           <p class="text-cerise-600 font-pt-sans-bold text-[20px] leading-[32px]">You're Not Alone</p>
         </div>
-        <div class=" w-3/4 lg:w-2/3 xl:w-1/3 mx-auto text-center lg:text-xl text-lg leading-8">
+        <div class="py-4 w-3/4 lg:w-2/3 xl:w-1/3 mx-auto text-center lg:text-xl text-lg leading-8">
           <p class="font-outfit text-[20px] leading-[32px] opacity-[70%]">Whether you're asking questions, playing to learn, or finding support, we want you to feel confident that your data is handled with care and respect</p>
         </div>
-        <div class="w-1/3 lg:w-1/5  flex justify-center">
-          <img src="@/assets/images/rafikey-mascot-hero-section.svg" alt="rafikey-image"/>
+        <div class=" flex justify-center">
+          <img class="w-2/5" src="@/assets/images/rafikey-mascot-hero-section.svg" alt="rafikey-image"/>
         </div>
         <div>
-          <h2 class="font-changa-one text-center px-2 pb-6text-[20px] lg:text-[72px] leading-[74px] tracking-[-3%]">No labels. No pressure. Just support.</h2>
+          <div class="font-outfit text-center px-2 pb-6 text-[20px] lg:text-[50px]">
+            <p><span class="text-cerise-600">No</span> labels</p>
+            <p><span class="text-cerise-600">No</span> pressure</p>
+            <p class="text-cerise-600">Just support</p>
+          </div>
         </div>
-        <!-- <div class="pt-6 cursor-pointer" >
-          <button
-            @click="startChatHandler"
-            class="btn btn-sm btn-primary   font-pt-sans-regular border-none py-8 px-10 bg-casablanca-300 rounded-lg flex items-center space-x-2">
-            <span class="text-xl">Start Chat</span>
-          </button>
-        </div> -->
       </div>
     </section>
 
