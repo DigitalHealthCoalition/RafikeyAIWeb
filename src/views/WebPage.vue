@@ -37,7 +37,10 @@ onUnmounted(() => {
 const closeChatFrame = () => {
   rafikeyWebStore.openChatFrame = false
 }
-console.log(chatbot_url)
+const scrollTopHandler = () =>{
+  console.log("Scroll to top handler called")
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 </script>
 
 <template>
