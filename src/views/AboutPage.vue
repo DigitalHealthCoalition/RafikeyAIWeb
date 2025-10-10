@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import FooterComponent from '@/components/FooterComponent.vue'
 
-const startChatHandler = () => {
-  window.location.href = 'https://chat.askrafikey.com/auth'
-}
+// const startChatHandler = () => {
+//   window.location.href = 'https://chat.askrafikey.com/auth'
+// }
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const startChatHandler = () => {
             <img src="@/assets/images/macbook-mockup.png" alt="computer-image"/>
           </div>
           <div class="flex justify-center">
-            <img src="@/assets/images/iphone-mockup.png" alt="phone-image" class="w-40"/>
+            <img src="../assets/images/iphone-mockup.png" alt="phone-image" class="w-40"/>
           </div>
         </div>
     </section>
