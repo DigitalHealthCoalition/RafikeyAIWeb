@@ -1,4 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory,
+  type RouteLocationNormalized,
+} from 'vue-router'
 
 
 const router = createRouter({
@@ -37,6 +41,17 @@ const router = createRouter({
       ]
     }
   ],
+  scrollBehavior(to:RouteLocationNormalized, from:RouteLocationNormalized){
+ return new Promise((resolve, reject)=>{
+   setTimeout(()=>{
+     resolve({
+       top: 0,
+       behavior: 'smooth'
+     })
+   }, 500)
+   }
+ )
+  }
 })
 
 export default router
