@@ -143,8 +143,8 @@ import FooterComponent from '@/components/FooterComponent.vue'
         </div>
         <div>
           <div class="font-outfit text-center px-2 pb-6 text-[20px] lg:text-[50px]">
-            <p><span class="text-cerise-600">No</span> labels</p>
-            <p><span class="text-cerise-600">No</span> pressure</p>
+            <p><span class="text-cerise-600 font-changa-one">No</span> labels</p>
+            <p><span class="text-cerise-600 font-changa-one">No</span> pressure</p>
             <p class="text-cerise-600">Just support</p>
           </div>
         </div>
