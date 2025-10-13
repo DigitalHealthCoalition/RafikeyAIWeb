@@ -167,7 +167,7 @@ const goToPlayGameHandler = () =>{
 
     <!--    second slide-->
     <section
-      class="panel-3 py-16 md:py-20 lg:pb-40 xl:h-screen bg-white lg:px-[80px] lg:mb-16"
+      class="panel-3 py-16 md:py-20 lg:pb-18 bg-white lg:px-[80px] lg:mb-14"
     >
       <div
         class=" flex flex-col"
@@ -220,9 +220,9 @@ const goToPlayGameHandler = () =>{
           >
             <div class="lg:flex lg:justify-center">
               <img
-                src="@/assets/images/home-4.png"
+                src="@/assets/images/dice.png"
                 alt="info-image"
-                class="w-12 md:w-16  lg:w-20"
+                class="w-10 md:w-16 lg:w-20 rounded-full aspect-square bg-[#0a0113] p-3"
               />
             </div>
             <div
@@ -250,7 +250,7 @@ const goToPlayGameHandler = () =>{
             <div class="lg:py-12 w-3/4  lg:space-y-3 lg:w-full mx-auto lg:px-4">
               <p class="font-pt-sans-bold lg:text-[28px] text-[16px] text-center">Personalized Support</p>
               <p class="text-[14px] lg:text-[16px] font-pt-sans-regular lg:text-center  text-bodyText">
-                Create your free account to unlock tailored advice and recommendations just for you. The more Rafikey knows you, the more it will respond uniquely to your queries.
+                <a href="https://chat.askrafikey.com/auth" target="_blank" rel="noopener" class="text-cerise-600 font-bold hover:text-cerise-800 transition-colors">Create your free account</a> to unlock tailored advice and recommendations just for you. The more Rafikey knows you, the more it will respond uniquely to your queries.
                 Because one-size-fits-all doesn’t fit you – join to get custom support.
               </p>
             </div>
