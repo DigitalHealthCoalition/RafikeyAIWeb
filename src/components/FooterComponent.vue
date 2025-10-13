@@ -64,14 +64,14 @@ const privacyPolicyHandler = () => {
 
           <div class="flex flex-col gap-2 text-center md:text-left">
             <h3 class="font-outfit text-[15px] leading-[173%] tracking-[0%] text-black opacity-[48%]">Rafikey</h3>
-            <a href="#" @click="router.push('/about')" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">About</a>
-            <a href="#" @click="router.push('/chatbot')" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">ChatBot</a>
+            <router-link to="/about" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">About</router-link>
+            <router-link to="/chatbot" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">ChatBot</router-link>
           </div>
 
           <div class="flex flex-col gap-2 text-center md:text-left">
             <h3 class="font-outfit text-[15px] leading-[173%] tracking-[0%] text-black opacity-[48%]">Privacy and Safety</h3>
-            <a href="#" @click="termsofuseHandler" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">Terms of Use</a>
-            <a href="#" @click="privacyPolicyHandler" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">Privacy Policy</a>
+            <a href="#" @click.prevent="termsofuseHandler" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">Terms of Use</a>
+            <a href="#" @click.prevent="privacyPolicyHandler" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">Privacy Policy</a>
           </div>
 
           <div class="flex flex-col gap-2 text-center md:text-left">

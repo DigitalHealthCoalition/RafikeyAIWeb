@@ -6,7 +6,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
 <template>
   <div class="">
 <!--    first slide-->
-    <section class="space-y-5 flex py-16 md:py-24 xl:py-30 flex-col items-center">
+  <section class="space-y-5 flex py-16 md:py-24 xl:py-30 flex-col items-center">
       <div class="flex flex-col items-center ">
           <h2 class="font-changa-one lg:text-[48px] text-[24px] tracking-[-3%]  text-lightGrayFour">Hello</h2>
           <h2 class="font-changa-one lg:text-[48px] text-[24px] tracking-[-3%] text-lightGrayFour" >I am Rafikey</h2>
@@ -22,10 +22,10 @@ import FooterComponent from '@/components/FooterComponent.vue'
 
 
 <!--    second slide-->
-    <section class="xl:h-screen  flex  lg:space-y-6 space-y-10  flex-col items-center justify-center ">
-      <div class="lg:flex lg:space-y-0 space-y-16 gap-6 xl:w-9/12 w-11/12  mx-auto">
-        <div class="flex flex-1  flex-col border-shark-950 border-2 lg:px-8 lg:py-12  rounded-2xl py-10 px-4 ">
-          <p class="font-changa-one text-[24px] lg:text-[36px] leading-[32px]  lg:leading-[74px] tracking-[-3%] text-lightGrayFour">💬  Who can use Rafikey?</p>
+  <section class="xl:h-screen flex  lg:space-y-4 space-y-4 flex-col items-center justify-center mb-4 md:mb-6 lg:mb-6">
+  <div class="lg:flex lg:space-y-0 space-y-16 gap-6 xl:w-9/12 w-11/12  mx-auto">
+    <div class="flex flex-1 flex-col lg:px-8 lg:py-12 rounded-2xl py-10 px-4 bg-white border-4 border-gray-300">
+          <p class="font-changa-one text-[22px] lg:text-[30px] leading-[32px]  lg:leading-[44px] tracking-[-3%] text-lightGrayFour">💬  Who can use Rafikey?</p>
           <div class="lg:pt-10 pt-4 text-[18px] font-urbanist weight-[600] text-lightGrayFour">
 <!--            <p class="">Anyone can use Rafikey if:</p>-->
             <ul class="list-disc ps-8">
@@ -36,9 +36,9 @@ import FooterComponent from '@/components/FooterComponent.vue'
 <!--              <li.</li>-->
             </ul>
           </div>
-        </div>
-        <div class="flex flex-1  flex-col  border-2 border-shark-950 lg:px-8 lg:py-12 rounded-2xl py-10 px-4 ">
-          <p class="font-changa-one text-[24px] lg:text-[36px] leading-[32px]  lg:leading-[74px] tracking-[-3%] text-lightGrayFour"><span class="text-gray-300">📁</span>What you should not do</p>
+    </div>
+    <div class="flex flex-1 flex-col lg:px-8 lg:py-12 rounded-2xl py-10 px-4 bg-white border-4 border-gray-300">
+          <p class="font-changa-one text-[22px] lg:text-[30px] leading-[32px] lg:leading-[44px] tracking-[-3%] text-lightGrayFour whitespace-nowrap"><span class="text-gray-300">📁</span> What you should not do</p>
           <div class="lg:pt-10 pt-4 text-[18px] font-urbanist weight-[600] text-lightGrayFour">
             <ul class="list-disc ps-8">
               <li>Use Rafikey to harm, harass, or mislead others</li>
@@ -48,9 +48,27 @@ import FooterComponent from '@/components/FooterComponent.vue'
             </ul>
           </div>
         </div>
+    </div>
+  </section>
+
+    <!--    third slide-->
+  <section class="mt-6 md:mt-10 lg:mt-10 mb-10 md:mb-16 lg:mb-32">
+      <div class="flex flex-1 flex-col border-4  bg-white border-4 border-gray-300 lg:px-8 lg:py-12 rounded-2xl py-10 px-4 w-3/4 mx-auto items-center">
+        <p class="font-changa-one text-[22px] lg:text-[30px] leading-[32px] lg:leading-[44px] tracking-[-3%] text-lightGrayFour flex items-center gap-2">
+          <span class="text-gray-300">&#128274;</span> Your Privacy Comes First
+        </p>
+        <div class="lg:pt-10 pt-4 text-[18px] font-urbanist weight-[600] text-lightGrayFour w-full">
+          <p class="font-outfit leading-[24px] lg:leading-[32px] text-[16px] lg:text-[20px]">
+            Rafikey protects your privacy. We do not collect personal data unless you choose to share it for a
+            more personalized experience. If you feel unsafe or experience abuse, Rafikey can help you find support,
+            but we encourage you to speak to a trusted adult immediately.
+          </p>
+        </div>
       </div>
     </section>
-    <section class="xl:h-screen flex mx-auto w-11/12 pt-6 md:pt-8 lg:pt-0 space-y-8 flex-col items-center justify-center">
+
+
+  <section class="xl:h-screen flex mx-auto w-11/12 pt-6 md:pt-8 lg:pt-0 space-y-8 flex-col items-center justify-center">
       <div class="flex flex-col space-y-6  items-center justify-center">
         <div>
           <h2 class="text- lightGrayFour  text-[24px] lg:text-[36px] tracking-[-3%]  leading-[32px] lg:leading-[74px] font-changa-one">Watch Rafikey at Work </h2>
@@ -59,7 +77,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
           <p class="font-urbanist weight-[600] text-[16px[ lg:text-[18px] font-semibold leading-[24px]">Curious how Rafikey works? This video walks you through a real conversation with Rafikey — from asking questions to getting trusted information and finding the right service.</p>
         </div>
       </div>
-<!--      video-->
+      <!--      video-->
 
       <div class="lg:hidden flex w-11/12 p-3 pb-8 bg-darkgray justify-center rounded-2xl items-center">
         <video class="w-full rounded-lg" controls preload="metadata" playsinline>
