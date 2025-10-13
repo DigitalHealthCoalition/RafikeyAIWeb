@@ -1,2 +1,2 @@
-export *  from './tabStore.ts'
-export * from './rafikeyWebstore.ts'
+export *  from './tabStore'
+export * from './rafikeyWebstore'
