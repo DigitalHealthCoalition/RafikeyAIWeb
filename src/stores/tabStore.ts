@@ -8,7 +8,7 @@ export const useTabStore = defineStore('adminTabStore', {
       { name: 'About',  value: 'about'},
       { name: 'Chatbot',  value: 'chatbot' },
       {name: 'Contact',  value: 'contacts'},
-      // {name: 'FAQs',  value: 'faqs'},
+      {name: 'Service Finder',  value: 'service-finder'},
     ] as { name: string, value:string}[],
     activeTab: localStorage.getItem('activeTab') || 'home' as string
   }),

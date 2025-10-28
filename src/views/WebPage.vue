@@ -48,7 +48,7 @@ const scrollTopHandler = () =>{
     <NavBar />
     <div
       v-show="showButton"
-      class="fixed bottom-0 left-0 right-0 z-50 flex justify-center items-center space-x-4 p-4 transition-opacity duration-300"
+      class="fixed bottom-0 left-0 right-0 z-[99999] flex justify-center items-center space-x-4 p-4 transition-opacity duration-300"
     >
       <div class="w-[298px] h-[69px] bg-darkgray rounded-full">
         <div
