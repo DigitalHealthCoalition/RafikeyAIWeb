@@ -38,10 +38,10 @@ const registerHandler = () => {
 
 <template>
 
-  <div class="fixed hidden lg:block left-0  h-[102px] right-0 top-0 bg-white z-50">
-    <div class="flex bg-white items-center h-full justify-between py-4 px-[80px] gap-4 ">
+  <div class="fixed hidden lg:block left-0  h-[80px] right-0 top-0 bg-white z-50">
+    <div class="flex  items-center h-full justify-between py-4 px-[80px] gap-4 ">
 <!--      icon-->
-      <div class="cursor-pointer flex items-end pt-1 w-[180px] " @click="homeHandler">
+      <div class="cursor-pointer flex items-end pt-1 w-[120px] " @click="homeHandler">
         <img src="@/assets/images/Rafikey-logo.png" alt="rafikey-name-image" class="">
       </div>
 <!--      navs-->
