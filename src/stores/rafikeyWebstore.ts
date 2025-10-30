@@ -9,14 +9,10 @@ const collapseSidebarSmall = ref(true);
 const BASE_URL = import.meta.env.VITE_BACKEND_URL_API
 
   const openChatFrame = useStorage('isChatOpen', false)
-  // const controller = new AbortController()
-  // const { signal} = controller.signal
-  // const timeout = setTimeout(()=>{
-  //   controller.abort()
-  //
-  // }, 5000)
   async function getClinics () {
     // fetch clinics from api
+    const controller = new AbortController()
+    const timeoutId = setTimeout(()=> controller.abort(), 5000)
  try{
    const response = await fetch(`${BASE_URL}/clinics/clinics`, {
        method: 'GET',
@@ -25,6 +21,8 @@ const BASE_URL = import.meta.env.VITE_BACKEND_URL_API
        }
      }
    )
+   // clear timeout
+   clearTimeout(timeoutId)
    const data  = await response.json()
    // console.log(data)
    if(!response.ok) {
@@ -38,8 +36,19 @@ const BASE_URL = import.meta.env.VITE_BACKEND_URL_API
         data: data
      }
    }
- } catch(err){
-   console.log(err)
+ } catch(err) {
+   if (err instanceof DOMException && err.name === 'AbortError'){
+     // console.log('Abort Error', err)
+     return {
+       result: 'error',
+       data: 'Something happened  please refresh the page'
+     }
+   } else {
+     // console.log('Error----', err)
+     return {
+       result: 'error',
+       data: 'Something happened  please refresh the page'
+     }
 
 
  }
