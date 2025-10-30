@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue'
 import { useStorage } from '@vueuse/core'
+import { ClinicDetail } from '@/views/ServiceFinder.vue'
 
 
 export const useRafikeyWebstore = defineStore('rafikeyWebstore', () => {
 
 const collapseSidebarSmall = ref(true);
 const BASE_URL = import.meta.env.VITE_BACKEND_URL_API
+  const clinics = ref<ClinicDetail []>([])
 
   const openChatFrame = useStorage('isChatOpen', false)
   async function getClinics () {
@@ -18,8 +20,11 @@ const BASE_URL = import.meta.env.VITE_BACKEND_URL_API
        method: 'GET',
        headers: {
          'Content-Type': 'application/json'
-       }
-     }
+       },
+     signal: controller.signal
+     },
+
+
    )
    // clear timeout
    clearTimeout(timeoutId)
@@ -50,9 +55,8 @@ const BASE_URL = import.meta.env.VITE_BACKEND_URL_API
        data: 'Something happened  please refresh the page'
      }
 
-
+   }
  }
-
   }
 
   const setCollapseSidebarSmall = (val: boolean) =>{
@@ -68,8 +72,8 @@ const BASE_URL = import.meta.env.VITE_BACKEND_URL_API
     setCollapseSidebarSmall,
     openChatFrame,
     setOpenChatFrame,
-    getClinics
-
+    getClinics,
+    clinics
   }
 
 })
