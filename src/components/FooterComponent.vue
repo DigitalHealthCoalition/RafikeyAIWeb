@@ -47,42 +47,51 @@ const privacyPolicyHandler = () => {
       </div>
     </section>
 
-    <footer class="px-6 py-8 bg-white">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8 md:gap-16">
+<footer class="px-6 py-8 bg-white">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-16">
 
-        <!-- Left brand block -->
-        <div class="flex flex-col items-center md:items-start text-center md:text-left md:flex-1">
-          <h2 class="text-[32px] font-changa leading-[100%] tracking-[-3%]">Rafikey</h2>
-          <div class="border-b border-2 w-48 border-gradient-to-r from-coral-red-500 to-azure-radiance-600 mt-2"></div>
-          <p class="mt-4 font-outfit text-lightGrayThree text-[16px] tracking-[-3%] md:max-w-sm">
-            Your Safe Space for Sexual and Reproductive Health and Rights Information and services
-          </p>
-        </div>
+    <!-- Brand -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left md:flex-1">
+      <h2 class="text-[32px] font-changa leading-[100%] tracking-[-3%]">Rafikey</h2>
+      <div class="border-b border-2 w-48 border-gradient-to-r from-coral-red-500 to-azure-radiance-600 mt-2"></div>
+      <p class="mt-4 font-outfit text-lightGrayThree text-[16px] tracking-[-3%] md:max-w-sm">
+        Your Safe Space for Sexual and Reproductive Health and Rights Information and Services
+      </p>
+    </div>
 
-        <!-- Links grouped in a row on desktop, stacked on mobile -->
-        <div class="flex flex-col md:flex-row gap-12 md:gap-16 items-center md:items-start md:flex-1 md:justify-end">
+    <!-- Links -->
+    <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-start md:flex-1 md:justify-end">
 
-          <div class="flex flex-col gap-2 text-center md:text-left">
-            <h3 class="font-outfit text-[15px] leading-[173%] tracking-[0%] text-black opacity-[48%]">Rafikey</h3>
-            <router-link to="/about" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">About</router-link>
-            <router-link to="/chatbot" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">ChatBot</router-link>
-          </div>
-
-          <div class="flex flex-col gap-2 text-center md:text-left">
-            <h3 class="font-outfit text-[15px] leading-[173%] tracking-[0%] text-black opacity-[48%]">Privacy and Safety</h3>
-            <a href="#" @click.prevent="termsofuseHandler" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">Terms of Use</a>
-            <a href="#" @click.prevent="privacyPolicyHandler" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">Privacy Policy</a>
-          </div>
-
-          <div class="flex flex-col gap-2 text-center md:text-left">
-            <h3 class="font-outfit text-[15px] leading-[173%] tracking-[0%] text-black opacity-[48%]">Contact</h3>
-            <a href="mailto:rafikey@afrimedia.org" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">Data Privacy</a>
-            <a href="mailto:rafikey@afrimedia.org" class="cursor-pointer text-[15px] font-outfit text-black leading-[173%] tracking-[0%] hover:opacity-70">General</a>
-          </div>
-
-        </div>
+      <!-- Legal Section -->
+      <div class="flex flex-col gap-2 text-center md:text-left">
+        <h3 class="font-pt-sans-bold lg:text-[28px] text-[16px] text-center md:text-left text-black">
+          Legal
+        </h3>
+        <a @click.prevent="termsofuseHandler" class="cursor-pointer text-[15px] font-outfit text-black hover:opacity-70">
+          Terms of Use
+        </a>
+        <a @click.prevent="privacyPolicyHandler" class="cursor-pointer text-[15px] font-outfit text-black hover:opacity-70">
+          Privacy Policy
+        </a>
       </div>
-    </footer>
+
+      <!-- Contact Section -->
+      <div class="flex flex-col gap-2 text-center md:text-left">
+        <h3 class="font-pt-sans-bold lg:text-[28px] text-[16px] text-center md:text-left text-black">
+          Contact Us
+        </h3>
+        <a href="mailto:rafikey@afrimedia.org" class="cursor-pointer text-[15px] font-outfit text-black hover:opacity-70">
+          Email Support
+        </a>
+        <a href="mailto:rafikey@afrimedia.org" class="cursor-pointer text-[15px] font-outfit text-black hover:opacity-70">
+          Privacy Inquiry
+        </a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
   </div>
 </template>
 
