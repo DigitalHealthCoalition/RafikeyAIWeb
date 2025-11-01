@@ -71,7 +71,7 @@ const scrollTopHandler = () =>{
 
     <div
       @click.stop="scrollTopHandler"
-      v-if="!showButton"
+      v-if="!showButton && !isChatFrameOpen"
       class="fixed bottom-24 right-10 z-50 cursor-pointer "
     >
       <div
@@ -82,7 +82,7 @@ const scrollTopHandler = () =>{
     </div>
 
     <div v-if="isChatFrameOpen" class="" >
-      <div class="bg-gray-200 rounded-xl p-4" @click="askRafikeyHandler">
+      <div @click="askRafikeyHandler">
         <iframe
           style="
             position: fixed;
@@ -94,7 +94,7 @@ const scrollTopHandler = () =>{
             border: none;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            z-index: 10000;
+            z-index: 1000;
           "
           id="rafikey-iframe" :src="`${chatbot_url}/guest-user?embed=true`"></iframe>
       </div>
