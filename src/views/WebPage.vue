@@ -10,7 +10,6 @@ const rafikeyWebStore = useRafikeyWebstore()
 
 const askRafikeyHandler = () => {
   rafikeyWebStore.openChatFrame = !rafikeyWebStore.openChatFrame
-  // openChatFrame.value =  !openChatFrame.value
 }
 
 const handleScroll = () => {
@@ -32,15 +31,13 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-// https://chat.askrafikey.com
 
-const closeChatFrame = () => {
-  rafikeyWebStore.openChatFrame = false
-}
 const scrollTopHandler = () =>{
   console.log("Scroll to top handler called")
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+
 </script>
 
 <template>
@@ -84,12 +81,22 @@ const scrollTopHandler = () =>{
       </div>
     </div>
 
-    <div v-if="isChatFrameOpen" class="fixed top-24 right-0 z-50">
-      <div class="bg-gray-200 rounded-xl p-4">
-        <div class="flex justify-end p-1 cursor-pointer" @click="closeChatFrame">
-          <span class="material-icons-outlined">cancel</span>
-        </div>
-        <iframe :src="`${chatbot_url}/guest-user`" class="lg:h-[600px] h-[400px]"></iframe>
+    <div v-if="isChatFrameOpen" class="" >
+      <div class="bg-gray-200 rounded-xl p-4" @click="askRafikeyHandler">
+        <iframe
+          style="
+            position: fixed;
+            bottom: 20px;
+            right: 10px;
+            width: 300px;
+            height: 500px;
+            max-height: 80dvh;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+          "
+          id="rafikey-iframe" :src="`${chatbot_url}/guest-user?embed=true`"></iframe>
       </div>
     </div>
   </div>
