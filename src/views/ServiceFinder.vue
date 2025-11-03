@@ -53,22 +53,23 @@ watch(
 
 onMounted(() => {
   isLoading.value = true
-  rafikeyStore.getClinics()
-    .then(res =>{
-      if(res){
-        if(res.result === 'success'){
-          rafikeyStore.clinics = res.data
+  rafikeyStore
+    .getClinics()
+    .then((res) => {
+      if (res) {
+        if (res.result === 'success') {
+          clinicsData.value = res.data
           console.log(res.data)
-        } else{
+        } else {
           isError.value = true
         }
       }
     })
-    .catch(err =>{
+    .catch((err) => {
       isError.value = true
-      console.log("Error fetching clinics", err)
+      console.log('Error fetching clinics', err)
     })
-    .finally(()=>{
+    .finally(() => {
       isLoading.value = false
     })
 })
@@ -91,6 +92,30 @@ const colors = ref([
   'cyan',
 ])
 
+const serviceList = computed(() =>
+  selectedClinic.value?.services ? selectedClinic.value.services.split(',') : [],
+)
+
+const serviceClassMap = computed(() => {
+  const classMap: Record<string, string> = {
+    red: 'bg-red-100 text-red-500 px-2 py-1 rounded-full text-xs',
+    green: 'bg-green-100 text-green-500  px-2 py-1 rounded-full text-xs',
+    blue: 'bg-blue-100 text-blue-500 px-2 py-1 rounded-full text-xs',
+    pink: 'bg-pink-100 text-pink-500 px-2 py-1 rounded-full text-xs',
+    lime: 'bg-lime-100 text-lime-500 px-2 py-1 rounded-full text-xs',
+    emerald: 'bg-emerald-100 text-emerald-500 px-2 py-1 rounded-full text-xs',
+    teal: 'bg-teal-100 text-teal-500 px-2 py-1 rounded-full text-xs',
+    purple: 'bg-purple-100 text-purple-500 px-2 py-1 rounded-full text-xs',
+    gray: 'bg-gray-100 text-gray-500 px-2 py-1 rounded-full text-xs',
+    cyan: 'bg-cyan-100 text-cyan-500 px-2 py-1 rounded-full text-xs',
+  }
+  const map = new Map<string, string>()
+  serviceList.value.map((c, i) => {
+    const colorName = colors.value[i % colors.value.length]
+    map.set(c, classMap[colorName] || 'bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs')
+  })
+  return map
+})
 
 const openModal = (clinicId: number) => {
   isShowDialog.value = true
