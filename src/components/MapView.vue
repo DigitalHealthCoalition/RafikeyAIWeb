@@ -79,30 +79,29 @@ const initializeMapDesktop = async () => {
          suppressMarkers: true, //we added custom markers
        })
 
-       //   Request route
-       directionsService.route(
-         {
-           origin: { lat: deviceLat, lng: deviceLng },
-           destination: { lat: props.destLatitude, lng: props.destLongitude},
-           travelMode: googleMaps.TravelMode.DRIVING,
-         },
-         (result, status) => {
-           if (status === googleMaps.DirectionsStatus.OK && result) {
-             directionsRenderer.setDirections(result)
-           } else {
-             errorMessage.value = 'Could not display directions due to: ' + status
-           }
-         },
-       )
-     },
-     (err) => {
-       errorMessage.value = 'Error getting location: ' + err.message
-       loading.value = false
-     },
-   )
- }
-catch(err){
-    console.log("Failed to load Google Maps", err)
+        //   Request route
+        directionsService.route(
+          {
+            origin: { lat: deviceLat, lng: deviceLng },
+            destination: { lat: props.destLatitude, lng: props.destLongitude },
+            travelMode: googleMaps.TravelMode.DRIVING,
+          },
+          (result, status) => {
+            if (status === googleMaps.DirectionsStatus.OK && result) {
+              directionsRenderer.setDirections(result)
+            } else {
+              errorMessage.value = 'Could not display directions due to: ' + status
+            }
+          },
+        )
+      },
+      (err) => {
+        errorMessage.value = 'Error getting location: ' + err.message
+        loading.value = false
+      },
+    )
+  } catch (err) {
+    console.log('Failed to load Google Maps', err)
     errorMessage.value = 'Error loading Google Maps'
     loading.value = false
   }
