@@ -123,9 +123,9 @@ const openModal = (clinicId: number) => {
 const reload = () => {
   window.location.reload()
 }
-const destLng = ref<number | null>(null)
-const destLat = ref<number | null>(null)
-const clinicName = ref<string>('')
+const destLng = ref(filteredClinics.value[0]?.longitude)
+const destLat = ref(filteredClinics.value[0]?.latitude)
+const clinicName = ref(filteredClinics.value[0]?.clinic_name)
 
 const getDirections = () =>{
   if(selectedClinic.value){
