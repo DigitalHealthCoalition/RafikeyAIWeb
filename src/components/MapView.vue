@@ -66,11 +66,11 @@ const initializeMapDesktop = async () => {
           title: 'Current location',
         })
 
-       new googleMaps.Marker({
-         position: { lat: props.destLatitude, lng: props.destLongitude as number },
-         map,
-         title: props.clinicName,
-       })
+        new google.maps.Marker({
+          position: { lat: props.destLatitude, lng: props.destLongitude as number },
+          map,
+          title: props.clinicName,
+        })
 
        //   set up direction service
        const directionsService = new googleMaps.DirectionsService()
