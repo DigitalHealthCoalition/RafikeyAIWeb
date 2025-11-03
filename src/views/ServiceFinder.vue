@@ -135,6 +135,14 @@ const getDirections = () =>{
   }
 }
 
+watch(()=> filteredClinics.value, (newVal)=>{
+  if(newVal.length >0){
+    destLng.value = newVal[0].longitude
+    destLat.value = newVal[0].latitude
+    clinicName.value = newVal[0].clinic_name
+  }
+} )
+
 </script>
 <template>
   <div class="h-screen md:overflow-y-hidden">
