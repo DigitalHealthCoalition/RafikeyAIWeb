@@ -129,9 +129,13 @@ const clinicName = ref(filteredClinics.value[0]?.clinic_name)
 
 const getDirections = () =>{
   if(selectedClinic.value){
-    destLat.value = selectedClinic.value.latitude
     destLng.value = selectedClinic.value.longitude
+    destLat.value = selectedClinic.value.latitude
     clinicName.value = selectedClinic.value.clinic_name
+    setTimeout(()=>{
+      isShowDialog.value = false
+    }, 500)
+
   }
 }
 
