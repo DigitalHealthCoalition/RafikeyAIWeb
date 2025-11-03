@@ -1,24 +1,47 @@
 <script setup lang="ts">
-
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import * as L from 'leaflet'
+import { useGoogleMaps } from '@/composables/useGoogleMaps'
 
+
+
+const props = defineProps<{
+  destLatitude: number
+  destLongitude: number
+  clinicName: string
+}>()
 onMounted(() => {
-  const map = L.map('map').setView([-1.286389, 36.817223], 7) // Nairobi coords
+  // const map = L.map('map').setView([-1.286389, 36.817223], 7) // Nairobi coords
+  //
+  // // Add the title layer from OpenStreetMap
+  //
+  // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  //   attribution: '',
+  // }).addTo(map)
+  //
+  // // Add marker and popup
+  // L.marker([-1.286389, 36.817223])
+  //   .addTo(map)
+  //   .bindPopup('Wellness Hub Clinic<br>123 Health Ave, Nairobi')
+  //   .openPopup()
+  //
+  // // console.log('Map pane', map.getPane)
 
-  // Add the title layer from OpenStreetMap
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  if(isMobile){
+    navigator.geolocation.getCurrentPosition(
+      pos =>{
+        const link = `https://www.google.com/maps/dir/?api=1&origin=${pos.coords.latitude},${pos.coords.longitude}&destination=${props.destLatitude},${props.destLongitude}`
+        window.location.href = link
+      },
+      ()=>{
+        window.location.href = `https://www.google.com/maps/dir/?api=1&destination=${props.destLatitude},${props.destLongitude}`
+      }
+    )
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: ''
-  }).addTo(map)
-
-  // Add marker and popup
-  L.marker([-1.286389, 36.817223])
-    .addTo(map)
-    .bindPopup('Wellness Hub Clinic<br>123 Health Ave, Nairobi')
-    .openPopup()
-
-  // console.log('Map pane', map.getPane)
+  } else{
+getLocation()
+  }
 })
 
 // const destLang = ref<number>()
@@ -98,11 +121,7 @@ catch(err){
 </script>
 
 <template>
-  <div
-    id="map"
-    class="h-[70vh] rounded-lg shadow-md flex items-center justify-center"
-  ></div>
-
+  <div id="map" class="h-[70vh] rounded-lg shadow-md flex items-center justify-center"></div>
 </template>
 
 <style scoped>
