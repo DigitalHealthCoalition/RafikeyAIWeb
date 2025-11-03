@@ -218,7 +218,7 @@ watch(()=> filteredClinics.value, (newVal)=>{
               </div>
             </div>
             <div class="lg:col-span-6 lg:block hidden">
-              <MapView  :clinic-name="clinicName || filteredClinics[0].clinic_name" :dest-latitude="destLat || filteredClinics[0].latitude as number" :dest-longitude="destLng || filteredClinics[0].longitude as number"/>
+              <MapView  :clinicName="clinicName || filteredClinics[0].clinic_name" :destLatitude="destLat || filteredClinics[0].latitude" :destLongitude="destLng || filteredClinics[0].longitude"/>
             </div>
           </div>
           <div v-else class="h-full flex justify-center items-center flex-col gap-4">
