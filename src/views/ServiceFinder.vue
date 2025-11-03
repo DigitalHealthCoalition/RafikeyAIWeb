@@ -196,8 +196,9 @@ watch(()=> filteredClinics.value, (newVal)=>{
                 <div
                   v-for="clinic in filteredClinics"
                   :key="clinic.id"
-                  class="bg-white p-5 rounded-lg shadow-md cursor-pointer hover:shadow-lg hover:-translate-x-1 border-2 border-transparent transition-all"
+                  class="bg-white p-5 rounded-lg shadow-md cursor-pointer hover:shadow-lg hover:-translate-x-1 border-2 transition-all"
                   id="card1"
+                  :class="[(selectedClinic?.id === clinic.id || (!selectedClinic && filteredClinics[0]?.id === clinic.id)) ? 'border-sky-500' : 'border-transparent']"
                 >
                   <!--                  <h3 class="text-xl font-bold text-gray-900">{{ clinic.clinic_name }}</h3>-->
                   <p class="text-sm text-pink-500 dark:text-pink-400 font-medium mt-1">
