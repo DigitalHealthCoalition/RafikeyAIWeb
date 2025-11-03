@@ -160,7 +160,8 @@ const getDirections = () =>{
                 >search</span
               >
               <input
-                class="w-full pl-10 pr-4 py-3 bg-background-light placeholder:text-stone-800 border border-gray-300 text-stone-800 rounded-lg focus:ring-primary focus:border-primary"
+                v-model="searchTerm"
+                class="w-full pl-10 pr-4 placeholder:text-sm  placeholder:md:text-lg py-3 bg-background-light placeholder:text-stone-800 border border-gray-300 text-stone-800 rounded-lg focus:ring-primary focus:border-primary"
                 placeholder="Search by keyword (e.g., clinic name, service)"
                 type="text"
               />
@@ -168,7 +169,8 @@ const getDirections = () =>{
           </div>
         </div>
       </section>
-      <div class="container h-96 mx-auto px-4 py-8">
+
+      <div class="container md:mt-40 mt-28 h-96  mx-auto px-4 pt-8">
         <div v-if="!isError && !isLoading">
           <div class="lg:grid lg:grid-cols-10 lg:gap-8" v-if="filteredClinics.length > 0">
             <div class="lg:col-span-4 mb-8 lg:mb-0">
@@ -178,20 +180,20 @@ const getDirections = () =>{
                 </div>
               </div>
               <!--            Clinics display-->
-              <div class="space-y-4 md:max-h-[70vh] overflow-y-auto pr-2" id="clinicList">
+              <div v-else class="space-y-4 md:max-h-[70vh] overflow-y-auto pr-2" id="clinicList">
                 <div
-                  v-for="clinic in rafikeyStore.clinics"
+                  v-for="clinic in filteredClinics"
                   :key="clinic.id"
                   class="bg-white p-5 rounded-lg shadow-md cursor-pointer hover:shadow-lg hover:-translate-x-1 border-2 border-transparent transition-all"
                   id="card1"
                 >
-<!--                  <h3 class="text-xl font-bold text-gray-900">{{ clinic.clinic_name }}</h3>-->
+                  <!--                  <h3 class="text-xl font-bold text-gray-900">{{ clinic.clinic_name }}</h3>-->
                   <p class="text-sm text-pink-500 dark:text-pink-400 font-medium mt-1">
-                    {{ clinic.clinic_name}}
+                    {{ clinic.clinic_name }}
                   </p>
                   <p class="text-stone-700 mt-2 flex items-center">
                     <span class="material-icons-outlined text-base mr-2">location_on</span>
-                    {{ clinic.location}}
+                    {{ clinic.location }}
                   </p>
                   <button
                     class="mt-4 w-full bg-sky-200 text-primary text-sky-500 py-2 px-4 rounded-lg font-semibold hover:bg-sky-400/20 transition-colors"
@@ -203,19 +205,20 @@ const getDirections = () =>{
               </div>
             </div>
             <div class="lg:col-span-6 lg:block hidden">
-              <MapView  />
+              <MapView  :clinic-name="clinicName || filteredClinics[0].clinic_name" :dest-latitude="destLat || filteredClinics[0].latitude as number" :dest-longitude="destLng || filteredClinics[0].longitude as number"/>
             </div>
           </div>
-          <div v-else  class=" h-full flex justify-center items-center flex-col gap-4">
-            <img  src="@/assets/images/no-data.svg" alt="no-data" class="md:w-64 w-44" />
-            <span class="text-lg md:text-xl">No data yet</span>
+          <div v-else class="h-full flex justify-center items-center flex-col gap-4">
+            <img src="@/assets/images/no-data.svg" alt="no-data" class="md:w-64 w-44" />
+            <span v-if="clinicsData.length > 0">No search found</span>
+            <span v-else class="text-lg md:text-xl">No data yet</span>
           </div>
         </div>
         <div v-if="isLoading" class="flex h-full justify-center items-center">
           <span class="loading loading-spinner text-sky-500 loading-lg"></span>
         </div>
-        <div v-if="isError" class=" gap-2 flex-col w-full h-full  flex justify-center items-center">
-          <img src="@/assets/images/no-data.svg"  alt="no-data" class="w-32"/>
+        <div v-if="isError" class="gap-2 flex-col w-full h-full flex justify-center items-center">
+          <img src="@/assets/images/no-data.svg" alt="no-data" class="w-32" />
           <span class="text-lg md:text-xl">Something went wrong please refresh</span>
           <button
             @click="reload"
@@ -238,7 +241,7 @@ const getDirections = () =>{
           <div class="space-y-4">
             <div class="flex justify-between">
               <div>
-                <p class="text-xl font-bold">{{ selectedClinic.clinic_name }}</p>
+                <p class="text-lg text-slate-800 font-bold leading-none">{{ selectedClinic.clinic_name }}</p>
               </div>
               <div>
                 <span class="material-icons-outlined">cancel</span>
@@ -249,26 +252,49 @@ const getDirections = () =>{
         </template>
         <template #body>
           <div class="py-4 space-y-4">
-            <div>
-              <p>Services Offered</p>
-            </div>
-            <div class="flex gap-2 flex-wrap mt-2">
-              <span>{{selectedClinic.services}}</span>
-            </div>
-            <div  v-if="selectedClinic.phone">
-              <div
-
-                v-for="(line, index) in selectedClinic.phone.split('\n')"
-                :key="index"
-                class="flex gap-2">
-                <span class="material-icons-outlined text-blue-500">phone</span>
-                <span>{{line}}</span>
+            <div v-if="selectedClinic.services">
+              <div>
+                <p>Services Offered</p>
+              </div>
+              <div class="flex gap-2">
+                <div
+                  class="flex flex-wrap mt-1"
+                  v-for="service in selectedClinic.services.split(',')"
+                  :key="service"
+                >
+                  <div :class="serviceClassMap.get(service)">
+                    <span>{{ service }}</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div
-              class="flex gap-2" v-if="selectedClinic.email_combined">
+            <!--            <div v-if="serviceList.operatingHours">-->
+            <!--              <div>-->
+            <!--                <p>Operating Hours</p>-->
+            <!--              </div>-->
+            <!--              <div class="flex gap-2 mt-1">-->
+            <!--                <div-->
+            <!--                  class="flex flex-wrap"-->
+            <!--                  v-for="(line, index) in selectedClinic.operatingHours.split('\n')"-->
+            <!--                  :key="index"-->
+            <!--                >-->
+            <!--                  <span>{{ line }}</span>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
+            <div v-if="selectedClinic.phone">
+              <div
+                v-for="(line, index) in selectedClinic.phone.split('\n')"
+                :key="index"
+                class="flex gap-2"
+              >
+                <span class="material-icons-outlined text-blue-500">phone</span>
+                <span>{{ line }}</span>
+              </div>
+            </div>
+            <div class="flex gap-2" v-if="selectedClinic.email_combined">
               <span class="material-icons-outlined text-blue-500">phone</span>
-              <span>{{selectedClinic.email_combined}}</span>
+              <span>{{ selectedClinic.email_combined }}</span>
             </div>
 
             <div class="flex gap-2" v-if="selectedClinic.website">
@@ -278,17 +304,7 @@ const getDirections = () =>{
                 target="_blank"
                 class="text-sm md:text-lg text-blue-600 hover:underline"
               >
-                {{selectedClinic.website}}
-              </a>
-            </div>
-            <div class="flex gap-2" v-if="selectedClinic.google_link">
-              <span class="material-icons-outlined text-blue-500">map</span>
-              <a
-                :href="selectedClinic.google_link"
-                target="_blank"
-                class="text-sm md:text-lg text-blue-600 hover:underline"
-              >
-                View on Google Maps
+                {{ selectedClinic.website }}
               </a>
             </div>
           </div>
@@ -296,16 +312,11 @@ const getDirections = () =>{
         <template #footer>
           <div class="w-full px-4 justify-center gap-4 flex">
             <button
-              class="btn w-1/2 btn-ghost border-none bg-link-water-200 shadow-none rounded-lg py-2 px-4 mr-2"
+              @click.stop="getDirections"
+              class="btn w-full btn-ghost border-none bg-link-water-200 shadow-none rounded-lg py-2 px-4 mr-2"
             >
               <span class="material-icons-outlined">assistant_direction</span>
               <span class="text-xs md:text-sm">Get Direction</span>
-            </button>
-            <button
-              class="w-1/2 btn btn-ghost border-none bg-blue-500 shadow-none rounded-lg py-2 px-4 mr-2"
-            >
-              <span class="material-icons-outlined text-white">chat_bubble_outline</span>
-              <span class="text-white text-xs md:text-sm">Start Chat</span>
             </button>
           </div>
         </template>
