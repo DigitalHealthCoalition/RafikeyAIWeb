@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import DialogModal from '@/components/DialogModal.vue'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import MapView from '@/components/MapView.vue'
 import { useRafikeyWebstore } from '@/stores'
+import LoadingShimmer from '@/components/LoadingShimmer.vue'
 
 export interface ClinicDetail {
   id: number
@@ -21,6 +22,34 @@ export interface ClinicDetail {
 const rafikeyStore = useRafikeyWebstore()
 const isLoading = ref(false)
 const isError = ref(false)
+const clinicsData = ref<ClinicDetail[]>([])
+const searchTerm = ref('')
+const isLoadingSearch = ref(false)
+
+const filteredClinics = computed(() => {
+  const term = searchTerm.value.toLowerCase().trim()
+  if (!term) return clinicsData.value
+  return clinicsData.value.filter((clinic) => {
+    const clinicName = clinic.clinic_name || ''
+    const services = clinic.services || ''
+    const location = clinic.location || ''
+    return (
+      clinicName.toLowerCase().includes(term) ||
+      services.toLowerCase().includes(term) ||
+      location.toLowerCase().includes(term)
+    )
+  })
+})
+
+// delay search for some time to show loading shimmers
+watch(
+  () => searchTerm.value,
+  async () => {
+    isLoadingSearch.value = true
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+    isLoadingSearch.value = false
+  }
+)
 
 onMounted(() => {
   isLoading.value = true
