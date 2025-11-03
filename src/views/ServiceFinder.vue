@@ -151,18 +151,6 @@ watch(()=> filteredClinics.value, (newVal)=>{
 <template>
   <div class="h-screen md:overflow-y-hidden">
     <main class=" font-pt-sans-regular">
-<!--      <section class="flex-col grad1 py-10">-->
-<!--        <div class="text-center justify-center items-center">-->
-<!--          <h1-->
-<!--            class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white leading-tight"-->
-<!--          >-->
-<!--            Find a Clinic Near You-->
-<!--          </h1>-->
-<!--          <p class="max-w-2xl mx-auto text-lg text-gray-700 dark:text-gray-300">-->
-<!--            Search for SRHR-friendly clinics and support centers near you.-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </section>-->
       <section class="lg:py-8 py-6 bg-white shadow-md fixed left-0 right-0 top-10 lg:top-14 z-9999">
         <div class="container mx-auto px-4">
           <div class="grid grid-cols-1 md:grid-cols-4 lg:gap-4 gap-8">
