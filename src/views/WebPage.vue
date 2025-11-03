@@ -77,17 +77,19 @@ const scrollTopHandler = () => {
     <div
       @click.stop="scrollTopHandler"
       v-if="!showButton && !isChatFrameOpen"
-      class="fixed bottom-24 right-10 z-50 cursor-pointer "
+      class="fixed bottom-24 right-10 z-50 cursor-pointer"
     >
       <div
         class="shadow-[0_10px_6px_rgba(0,0,0,0.3)] rounded-full border-2 border-casablanca-300 md:h-12 md:w-12 h-10 w-10 flex justify-center items-center"
       >
-        <span class="material-icons-outlined font-bold  rotate-90 text-casablanca-300">arrow_back_ios</span>
+        <span class="material-icons-outlined font-bold rotate-90 text-casablanca-300"
+          >arrow_back_ios</span
+        >
       </div>
     </div>
 
-    <div v-if="isChatFrameOpen" class="" >
-      <div @click="askRafikeyHandler">
+    <div v-if="isChatFrameOpen" class="">
+      <div>
         <iframe
           style="
             position: fixed;
@@ -101,7 +103,9 @@ const scrollTopHandler = () => {
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             z-index: 1000;
           "
-          id="rafikey-iframe" :src="`${chatbot_url}/guest-user?embed=true`"></iframe>
+          id="rafikey-iframe"
+          :src="`${chatbot_url}/guest-user?embed=true`"
+        ></iframe>
       </div>
     </div>
   </div>
