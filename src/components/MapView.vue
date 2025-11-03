@@ -44,12 +44,12 @@ const initializeMapDesktop = async () => {
   try {
     const googleMaps = await useGoogleMaps()
 
-   //   check for geolocation support
-   if (!navigator.geolocation) {
-     errorMessage.value = 'Geolocation not supported by your browser'
-     loading.value = false
-     return
-   }
+    //   check for geolocation support
+    if (!navigator.geolocation) {
+      errorMessage.value = 'Geolocation not supported by your browser'
+      loading.value = false
+      return
+    }
 
    //   Get user's location
    navigator.geolocation.getCurrentPosition(
