@@ -44,8 +44,30 @@ getLocation()
   }
 })
 
-// const destLang = ref<number>()
-// const destLat = ref<number>()
+const initializeMap = ()=>{
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  if (isMobile) {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const link = `https://www.google.com/maps/dir/?api=1&origin=${pos.coords.latitude},${pos.coords.longitude}&destination=${props.destLatitude},${props.destLongitude}`
+        window.location.href = link
+      },
+      () => {
+        window.location.href = `https://www.google.com/maps/dir/?api=1&destination=${props.destLatitude},${props.destLongitude}`
+      },
+    )
+  } else {
+    initializeMapDesktop()
+  }
+}
+
+watch(
+  () => [props.destLatitude, props.destLongitude],
+  () => {
+    initializeMapDesktop()
+  },
+)
+
 const errorMessage = ref<string>('')
 const loading = ref<boolean>(false)
 const getLocation = async () => {
